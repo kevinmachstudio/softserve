@@ -9,7 +9,7 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type','text/plain')
         self.end_headers()
-        self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
+        # self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
         # message = cow.Cowacter().milk('Hello from Python from a Serverless Function!')
         # self.wfile.write(message.encode())
         message = 'GME ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
