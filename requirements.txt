@@ -1,1 +1,2 @@
 cowpy==1.0.3
+yahoo-fin==0.8.6
