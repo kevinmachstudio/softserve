@@ -9,8 +9,8 @@ fake-useragent==0.1.11
 idna==2.10
 importlib-metadata==2.1.1
 lxml==4.6.2
-numpy==1.20.1
-pandas==1.2.2
+numpy==1.19.1
+pandas==1.1.5
 parse==1.19.0
 pyee==8.1.0
 pyppeteer==0.2.5
