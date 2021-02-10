@@ -13,5 +13,5 @@ class handler(BaseHTTPRequestHandler):
         # message = cow.Cowacter().milk('Hello from Python from a Serverless Function!')
         # self.wfile.write(message.encode())
         message = 'GME ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
-        self.wfile.write(message.encode())
+        self.wfile.write(message)
         return
