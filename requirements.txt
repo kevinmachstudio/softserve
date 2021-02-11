@@ -30,3 +30,4 @@ virtualenv==16.7.6
 virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
 websockets==8.1
+yahoo-fin==0.8.6
