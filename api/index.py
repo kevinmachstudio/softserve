@@ -45,7 +45,6 @@ class handler(BaseHTTPRequestHandler):
 
         message_body = create_message(crypto)
 
-
         # self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
         # message = cow.Cowacter().milk('Hello from Python from a Serverless Function!')
         # self.wfile.write(message.encode())
@@ -59,7 +58,10 @@ class handler(BaseHTTPRequestHandler):
                     )
             
             print(message.sid)
+        else:
+            print('HOLD THE LINEEE')
+            print(crypto)
         
-        # message = 'GME ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
-        self.wfile.write(message_body.encode('utf-16'))
+            # message = 'GME ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
+            self.wfile.write(message_body.encode('utf-16'))
         return

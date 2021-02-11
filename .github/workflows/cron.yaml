@@ -1,6 +1,6 @@
 name: Cron
 
-# Run this workflow every time a new commit pushed to your repository
+# Run this workflow every 5 minutes
 on:
   schedule:
     - cron:  '*/5 * * * *'
@@ -18,4 +18,4 @@ jobs:
       - name: curl
         uses: wei/curl@v1
         with:
-          args: -X GET https://softserve-fltj8ypt7.vercel.app/api/index 
+          args: -X GET https://softserve.vercel.app/api/index 
