@@ -6,7 +6,6 @@ from twilio.rest import Client
 import cryptocompare
 import os
 
-
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
@@ -51,14 +50,15 @@ class handler(BaseHTTPRequestHandler):
         # message = cow.Cowacter().milk('Hello from Python from a Serverless Function!')
         # self.wfile.write(message.encode())
         
-        message = client.messages \
-                .create(
-                     body=message_body,
-                     from_='+13158733012',
-                     to='+14083681318'
-                 )
-        
-        print(message.sid)
+        if float(crypto['BTC']) > 50000 or float(crypto['ADA']) > 1 or float(crypto['LINK']) > 50:
+            message = client.messages \
+                    .create(
+                        body=message_body,
+                        from_='+13158733012',
+                        to='+14083681318'
+                    )
+            
+            print(message.sid)
         
         # message = 'GME ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
         self.wfile.write(message_body.encode('utf-16'))

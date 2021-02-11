@@ -1,0 +1,21 @@
+name: Cron
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  schedule:
+    - cron:  '*/5 * * * *'
+
+jobs:
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+  diamond:
+    # Name the Job
+    name: Curl serverless function
+    # Set the type of machine to run on
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: curl
+        uses: wei/curl@v1
+        with:
+          args: -X GET https://softserve-fltj8ypt7.vercel.app/api/index 
