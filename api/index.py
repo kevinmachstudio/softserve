@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 # from cowpy import cow
 from datetime import datetime
-from yahoo_fin import stock_info as si
+# from yahoo_fin import stock_info as si
 import cryptocompare
 
 
@@ -29,7 +29,7 @@ def create_message(data):
             'XRP: ' + data['XRP'] + '\n' + \
             'ADA: ' + data['ADA'] + '\n' + \
             'LINK: ' + data['LINK'] + '\n' + \
-            'GME: ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
+            # 'GME: ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
     return msg
 
 class handler(BaseHTTPRequestHandler):
