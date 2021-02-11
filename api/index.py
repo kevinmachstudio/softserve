@@ -25,10 +25,11 @@ def fetch_crypto_prices():
 
 def create_message(data):
     msg =   '\n' + \
+            `🚀🚀🚀🚀🚀🚀🚀🚀🚀🌕🌕🌕🌕🌕🌕🦍🦍🦍🦍🦍🦍🦍🦍💎💎💎💎💎💎💎`
             'BTC: ' + data['BTC'] + '\n' + \
             'XRP: ' + data['XRP'] + '\n' + \
             'ADA: ' + data['ADA'] + '\n' + \
-            'LINK: ' + data['LINK'] + '\n' + \
+            'LINK: ' + data['LINK'] + '\n'
             # 'GME: ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
     return msg
 
