@@ -3,6 +3,7 @@ from http.server import BaseHTTPRequestHandler
 from datetime import datetime
 # from yahoo_fin import stock_info as si
 import cryptocompare
+import os
 
 
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
