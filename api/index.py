@@ -41,7 +41,7 @@ def over_threshold(crypto):
         return False
 
 def under_threshold(crypto):
-    if float(crypto['ADA']) < .90 or float(crypto['LINK']) < 25:
+    if float(crypto['ADA']) < .80 or float(crypto['LINK']) < 25:
         return True
     else:
         return False
