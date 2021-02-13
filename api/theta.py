@@ -10,41 +10,18 @@ account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
-def fetch_crypto_prices():
-    
-    btc_price = cryptocompare.get_price('BTC', currency='USD')
-    xrp_price = cryptocompare.get_price('XRP', currency='USD')
-    ada_price = cryptocompare.get_price('ADA', currency='USD')
-    link_price = cryptocompare.get_price('LINK', currency='USD')
-
-    return {
-        'BTC': str(btc_price['BTC']['USD']),
-        'XRP': str(xrp_price['XRP']['USD']),
-        'ADA': str(ada_price['ADA']['USD']),
-        'LINK': str(link_price['LINK']['USD'])
-    }
-
 def create_message(data):
-    msg =   '\n' + \
-            '🚀🚀🚀🚀🚀🚀🚀🚀🚀🌕🌕🌕🌕🌕🌕🦍🦍🦍🦍🦍🦍🦍🦍💎💎💎💎💎💎💎' + '\n' + \
-            'BTC: ' + data['BTC'] + '\n' + \
-            'XRP: ' + data['XRP'] + '\n' + \
-            'ADA: ' + data['ADA'] + '\n' + \
-            'LINK: ' + data['LINK'] + '\n'
+    # msg =   '\n' + \
+            
             # 'GME: ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
-    return msg
+    # return msg
+    pass
 
 def over_threshold(crypto):
-    if float(crypto['BTC']) > 50000 or float(crypto['ADA']) > 1 or float(crypto['LINK']) > 50:
-        return True
-    else:
-        return False
+    pass
 
 def under_threshold(crypto):
-    if float(crypto['ADA']) < .90 or float(crypto['LINK']) < 25:
-        return True
-    else:
-        return False
+    pass
 
 class handler(BaseHTTPRequestHandler):
 
