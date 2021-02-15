@@ -84,6 +84,10 @@ class handler(BaseHTTPRequestHandler):
                     )
             print(message.sid)
     
+        # call theta endpoint to fetch CSP information
+        # response = requests.get("https://options-detector.vercel.app/api/index")
+        
+    
         # message = 'GME ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
         self.wfile.write(message_body.encode('utf-16'))
         return
