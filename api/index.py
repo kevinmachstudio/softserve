@@ -35,13 +35,13 @@ def create_message(data):
     return msg
 
 def over_threshold(crypto):
-    if float(crypto['BTC']) > 50000 or float(crypto['ADA']) > 1 or float(crypto['LINK']) > 50:
+    if float(crypto['BTC']) > 60000 or float(crypto['ADA']) > 1 or float(crypto['LINK']) > 50:
         return True
     else:
         return False
 
 def under_threshold(crypto):
-    if float(crypto['ADA']) < .60 or float(crypto['LINK']) < 20:
+    if float(crypto['ADA']) < .70 or float(crypto['LINK']) < 20:
         return True
     else:
         return False
