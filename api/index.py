@@ -28,24 +28,6 @@ def fetch_crypto_prices():
         'EGLD': str(link_price['EGLD']['USD'])
     }
 
-def is_time_to_pay_rent():
-    today = datetime.now()
-    
-    # check for 1st day of the month
-    if today.day == 1:
-        return True
-    
-    return False
-
-def is_time_to_pay_cc():
-    today = datetime.now()
-    
-    # check for 25th day of the month
-    if today.day == 25:
-        return True
-    
-    return False
-
 def create_message(data):
     msg =   '\n' + \
             '🚀🚀🚀🚀🚀🚀🚀🚀🚀🌕🌕🌕🌕🌕🌕🦍🦍🦍🦍🦍🦍🦍🦍💎💎💎💎💎💎💎' + '\n' + \
@@ -100,12 +82,6 @@ class handler(BaseHTTPRequestHandler):
         else:
             print('TIME TO BUYYYYYY')
             print(crypto)
-            
-        if is_time_to_pay_rent():
-            message_body += "\n Time to pay rent!!\n"
-
-        if is_time_to_pay_cc():
-            message_body += "\n Time to pay off credit cards!!\n"
 
         if send_message:
             message = client.messages \
