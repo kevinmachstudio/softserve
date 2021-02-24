@@ -16,13 +16,35 @@ def fetch_crypto_prices():
     xrp_price = cryptocompare.get_price('XRP', currency='USD')
     ada_price = cryptocompare.get_price('ADA', currency='USD')
     link_price = cryptocompare.get_price('LINK', currency='USD')
+    vet_price = cryptocompare.get_price('VET', currency='USD')
+    egld_price = cryptocompare.get_price('EGLD', currency='USD')
 
     return {
         'BTC': str(btc_price['BTC']['USD']),
         'XRP': str(xrp_price['XRP']['USD']),
         'ADA': str(ada_price['ADA']['USD']),
-        'LINK': str(link_price['LINK']['USD'])
+        'LINK': str(link_price['LINK']['USD']),
+        'VET': str(link_price['VET']['USD']),
+        'EGLD': str(link_price['EGLD']['USD'])
     }
+
+def is_time_to_pay_rent():
+    today = datetime.now()
+    
+    # check for 1st day of the month
+    if today.day == 1:
+        return True
+    
+    return False
+
+def is_time_to_pay_cc():
+    today = datetime.now()
+    
+    # check for 25th day of the month
+    if today.day == 25:
+        return True
+    
+    return False
 
 def create_message(data):
     msg =   '\n' + \
@@ -30,12 +52,16 @@ def create_message(data):
             'BTC: ' + data['BTC'] + '\n' + \
             'XRP: ' + data['XRP'] + '\n' + \
             'ADA: ' + data['ADA'] + '\n' + \
-            'LINK: ' + data['LINK'] + '\n'
+            'LINK: ' + data['LINK'] + '\n' + \
+            'VET: ' + data['VET'] + '\n' + \
+            'EGLD: ' + data['EGLD'] + '\n'
+
             # 'GME: ' + str(si.get_live_price("GME")) + ' 🚀🚀🚀🚀🚀🚀🚀🚀🚀'
     return msg
 
 def over_threshold(crypto):
-    if float(crypto['BTC']) > 60000 or float(crypto['ADA']) > 1.50 or float(crypto['LINK']) > 50:
+    if float(crypto['BTC']) > 60000 or float(crypto['ADA']) > 1.50 or float(crypto['LINK']) > 50 or \
+        float(crypto['EGLD']) > 500 or float(crypto['VET']) > 0.5:
         return True
     else:
         return False
@@ -74,7 +100,13 @@ class handler(BaseHTTPRequestHandler):
         else:
             print('TIME TO BUYYYYYY')
             print(crypto)
-        
+            
+        if is_time_to_pay_rent():
+            message_body += "\n Time to pay rent!!\n"
+
+        if is_time_to_pay_cc():
+            message_body += "\n Time to pay off credit cards!!\n"
+
         if send_message:
             message = client.messages \
                     .create(
