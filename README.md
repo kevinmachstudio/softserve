@@ -19,3 +19,5 @@ jobs:
         uses: wei/curl@v1
         with:
           args: -X GET https://softserve.vercel.app/api/index 
+
+# This serverless function runs on Vercel and is called via a cron job on console.cron-job.org/jobs

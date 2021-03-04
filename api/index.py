@@ -54,6 +54,7 @@ def under_threshold(crypto):
     else:
         return False
 
+# call this endpoint to check for crypto information / thresholds
 class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
@@ -63,12 +64,7 @@ class handler(BaseHTTPRequestHandler):
 
         crypto = fetch_crypto_prices()
 
-        message_body = create_message(crypto)
-
-        # self.wfile.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')).encode())
-        # message = cow.Cowacter().milk('Hello from Python from a Serverless Function!')
-        # self.wfile.write(message.encode())
-        
+        message_body = create_message(crypto)        
         send_message = False
         
         if over_threshold(crypto):
